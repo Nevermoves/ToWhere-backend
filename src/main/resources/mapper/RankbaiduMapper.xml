@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zucc.edu.javen.tw.entity.RankBaidu">
+
+    <resultMap id="rankbaidu" type="com.zucc.edu.javen.tw.entity.RankBaidu">
+        <id property="id" column="id" javaType="java.lang.Integer"/>
+        <result property="url" column="iid" javaType="java.lang.Integer"/>
+        <result property="title" column="title" javaType="java.lang.String"/>
+        <result property="adddate" column="add_date" javaType="java.lang.Integer"/>
+        <result property="getdate" column="get_date" javaType="java.util.Date"/>
+        <result property="rank" column="rank" javaType="java.lang.Integer"/>
+        <result property="more" column="rank" javaType="java.lang.String"/>
+    </resultMap>
+
+</mapper>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zucc.edu.javen.tw.dao.UserDao">
+
+    <resultMap id="userMap" type="com.zucc.edu.javen.tw.entity.UserEntity">
+        <id property="id" column="id" javaType="java.lang.Integer"/>
+        <result property="username" column="username" javaType="java.lang.String"/>
+        <result property="password" column="password" javaType="java.lang.String"/>
+    </resultMap>
+
+    <select id="getById" resultMap="userMap" parameterType="int">
+        select * from mst_user where id = #{id}
+    </select>
+
+    <select id="getByUsername" resultMap="userMap" parameterType="string">
+        select * from mst_user where username = #{username}
+    </select>
+
+    <insert id="addUser" useGeneratedKeys="true" parameterType="com.zucc.edu.javen.tw.entity.UserEntity">
+        insert into mst_user(username, password) VALUES (#{username},#{password})
+    </insert>
+</mapper>

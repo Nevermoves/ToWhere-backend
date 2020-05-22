@@ -54,7 +54,7 @@
         <mapper resource="mapper/RankbaiduMapper.xml"/>
         <mapper resource="mapper/RankbilibiliMapper.xml"/>
         <mapper resource="mapper/RankguokeMapper.xml"/>
-        <mapper resource="mapper/RankpearpaiMapper.xml"/>
+        <mapper resource="mapper/RankpearvedioMapper.xml"/>
         <mapper resource="mapper/RankpengpaiMapper.xml"/>
         <mapper resource="mapper/RankqdailyMapper.xml"/>
         <mapper resource="mapper/RanktiebaMapper.xml"/>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.zucc.edu.javen.tw.entity.RankWeibo">
+<mapper namespace="com.zucc.edu.javen.tw.dao.RankWeiboDao">
 
     <resultMap id="rankweibo" type="com.zucc.edu.javen.tw.entity.RankWeibo">
         <id property="id" column="id" javaType="java.lang.Integer"/>
@@ -11,5 +11,17 @@
         <result property="rank" column="rank" javaType="java.lang.Integer"/>
         <result property="more" column="more" javaType="java.lang.String"/>
     </resultMap>
+
+    <select id="getNewsListByRank" resultMap="rankweibo" parameterType="int">
+        select * from rank_weibo where rank = #{rank} and add_date >= all(select add_date from rank_weibo where rank = #{rank}) limit 0,1
+    </select>
+
+    <select id="getRankList" resultType="int">
+        select rank from rank_weibo group by rank
+    </select>
+
+    <select id="getNewsList" resultMap="rankweibo">
+        select distinct * from rank_weibo order by id desc limit 0,50
+    </select>
 
 </mapper>

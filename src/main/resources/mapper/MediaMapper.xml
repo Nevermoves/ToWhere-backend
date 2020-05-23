@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zucc.edu.javen.tw.dao.MediaDao">
+
+    <resultMap id="mediamap" type="com.zucc.edu.javen.tw.entity.MediaEntity">
+
+        <id property="id" column="id" javaType="java.lang.Integer"/>
+        <result property="kindid" column="kindid" javaType="java.lang.Integer"/>
+        <result property="medianame" column="medianame" javaType="java.lang.String"/>
+        <result property="tablename" column="tablename" javaType="java.lang.String"/>
+        <result property="mediaurl" column="mediaurl" javaType="java.lang.String"/>
+    </resultMap>
+
+</mapper>

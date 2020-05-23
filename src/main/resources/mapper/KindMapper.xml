@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zucc.edu.javen.tw.dao.KindDao">
+
+    <resultMap id="kindmap" type="com.zucc.edu.javen.tw.entity.KindEntity">
+        <id property="id" column="id" javaType="java.lang.Integer"/>
+        <result property="kidnap" column="kindname" javaType="java.lang.Integer"/>
+    </resultMap>
+
+    <select id="loadKind" resultMap="kindmap">
+        select * from media_kind where id in (select kindid from media_media group by kindid)
+    </select>
+</mapper>

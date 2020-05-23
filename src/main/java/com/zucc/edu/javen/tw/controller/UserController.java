@@ -65,7 +65,7 @@ public class UserController {
     public String getMessage() {
 
         // 取出token中带的用户username 进行操作
-        System.out.println(TokenUtil.getTokenUserId());
+//        System.out.println(TokenUtil.getTokenUserId());
 
         return "您已通过验证";
     }

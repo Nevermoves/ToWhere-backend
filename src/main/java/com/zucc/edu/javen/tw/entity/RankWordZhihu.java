@@ -1,7 +1,10 @@
 package com.zucc.edu.javen.tw.entity;
 
+import com.zucc.edu.javen.tw.anno.Lnquire;
+
 import java.util.Date;
 
+@Lnquire(table = "word_zhihu",limit = 10)
 public class RankWordZhihu {
 
     int id;

@@ -21,7 +21,7 @@
     </select>
 
     <select id="getNewsList" resultMap="rankweibo">
-        select distinct * from rank_weibo order by id desc limit 0,50
+        select * from rank_weibo order by id desc limit 0,50
     </select>
 
 </mapper>

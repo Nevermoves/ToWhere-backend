@@ -12,7 +12,7 @@
         <result property="more" column="more" javaType="java.lang.String"/>
     </resultMap>
 
-    <select id="getNewsList" resultMap="rankweibo">
+    <select id="getRankweiboNewsList" resultMap="rankweibo">
         select * from rank_weibo order by id desc limit 0,100
     </select>
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.zucc.edu.javen.tw.entity.RankToutiao">
+<mapper namespace="com.zucc.edu.javen.tw.dao.RankToutiaoDao">
 
     <resultMap id="ranktoutiao" type="com.zucc.edu.javen.tw.entity.RankToutiao">
         <id property="id" column="id" javaType="java.lang.Integer"/>
@@ -11,4 +11,7 @@
         <result property="rank" column="rank" javaType="java.lang.Integer"/>
     </resultMap>
 
+    <select id="getRanktoutiaoNewsList" resultMap="ranktoutiao">
+        select * from rank_toutiao order by id desc limit 0,120
+    </select>
 </mapper>

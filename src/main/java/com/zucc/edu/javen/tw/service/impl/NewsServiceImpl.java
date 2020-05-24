@@ -9,4 +9,6 @@ public interface NewsServiceImpl {
 
     JSONObject getNewsList();
 
+    JSONObject getAllNewsList(String name);
+
 }

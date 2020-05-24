@@ -4,7 +4,7 @@ import com.zucc.edu.javen.tw.anno.Lnquire;
 
 import java.util.Date;
 
-@Lnquire(table = "rank_163",limit = 10)
+@Lnquire(table = "rank_163",limit = 50)
 public class Rank163 {
 
     int id;

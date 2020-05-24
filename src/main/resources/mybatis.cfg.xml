@@ -17,13 +17,13 @@
         <typeAlias type="com.zucc.edu.javen.tw.entity.RankGuoke" alias="RankGuoke"/>
         <typeAlias type="com.zucc.edu.javen.tw.entity.RankPearvedio" alias="RankPearvedio"/>
         <typeAlias type="com.zucc.edu.javen.tw.entity.RankPengpai" alias="RankPengpai"/>
-        <typeAlias type="com.zucc.edu.javen.tw.entity.RankQDaily" alias="RankQDaily"/>
+        <typeAlias type="com.zucc.edu.javen.tw.entity.RankQdaily" alias="RankQDaily"/>
         <typeAlias type="com.zucc.edu.javen.tw.entity.RankToutiao" alias="RankToutiao"/>
         <typeAlias type="com.zucc.edu.javen.tw.entity.RankWeibo" alias="RankWeibo"/>
         <typeAlias type="com.zucc.edu.javen.tw.entity.RankYc" alias="RankYc"/>
         <typeAlias type="com.zucc.edu.javen.tw.entity.RankZhihu" alias="RankZhihu"/>
         <typeAlias type="com.zucc.edu.javen.tw.entity.RankTieba" alias="RankTieba"/>
-        <typeAlias type="com.zucc.edu.javen.tw.entity.RankWordZhihu" alias="RankWordZhihu"/>
+        <typeAlias type="com.zucc.edu.javen.tw.entity.RankZhihuword" alias="RankWordZhihu"/>
     </typeAliases>
 
 
@@ -60,7 +60,7 @@
         <mapper resource="mapper/RanktiebaMapper.xml"/>
         <mapper resource="mapper/RanktoutiaoMapper.xml"/>
         <mapper resource="mapper/RankweiboMapper.xml"/>
-        <mapper resource="mapper/RankwordzhihuMapper.xml"/>
+        <mapper resource="mapper/RankzhihuwordMapper.xml"/>
         <mapper resource="mapper/RankycMapper.xml"/>
         <mapper resource="mapper/RankzhihuMapper.xml"/>
         <mapper resource="mapper/PickMapper.xml"/>

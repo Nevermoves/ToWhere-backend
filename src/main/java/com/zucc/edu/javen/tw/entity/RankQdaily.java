@@ -5,7 +5,7 @@ import com.zucc.edu.javen.tw.anno.Lnquire;
 import java.util.Date;
 
 @Lnquire(table = "rank_qdaily",limit = 50)
-public class RankQDaily {
+public class RankQdaily {
 
     int id;
     int url;

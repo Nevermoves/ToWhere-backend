@@ -9,7 +9,7 @@
         <result property="adddate" column="add_date" javaType="java.lang.Integer"/>
         <result property="getdate" column="get_date" javaType="java.util.Date"/>
         <result property="rank" column="rank" javaType="java.lang.Integer"/>
-        <result property="more" column="rank" javaType="java.lang.String"/>
+        <result property="more" column="more" javaType="java.lang.String"/>
     </resultMap>
 
     <select id="getRanktiebaNewsList" resultMap="ranktieba">

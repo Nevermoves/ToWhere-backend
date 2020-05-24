@@ -32,7 +32,7 @@ public class RankbaiduNewsService implements BaiduNewsServiceImpl {
         for(RankBaidu baidu: list){
             JSONObject js = (JSONObject) JSONObject.toJSON(baidu);
             js.remove("url");
-            js.put("url","www.anyknew.com/"+baidu.getUrl());
+            js.put("url","www.anyknew.com/go/"+baidu.getUrl());
             js.remove("id");
             js.remove("getdate");
             js.remove("adddate");
@@ -70,7 +70,7 @@ public class RankbaiduNewsService implements BaiduNewsServiceImpl {
         for(RankTieba entity: list){
             JSONObject js = (JSONObject) JSONObject.toJSON(entity);
             js.remove("url");
-            js.put("url","www.anyknew.com/"+entity.getUrl());
+            js.put("url","www.anyknew.com/go/"+entity.getUrl());
             js.remove("id");
             js.remove("getdate");
             js.remove("adddate");

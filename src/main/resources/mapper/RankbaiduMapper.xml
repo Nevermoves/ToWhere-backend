@@ -13,6 +13,6 @@
     </resultMap>
 
     <select id="getRankbaiduNewsList" resultMap="rankbaidu">
-        select * from rank_baidu order by id desc limit 0,30
+        select * from rank_baidu order by id desc limit 0,60
     </select>
 </mapper>

@@ -13,6 +13,6 @@
     </resultMap>
 
     <select id="getRanktiebaNewsList" resultMap="ranktieba">
-        select * from tieba order by id desc limit 0,30
+        select * from tieba order by id desc limit 0,60
     </select>
 </mapper>

@@ -12,16 +12,9 @@
         <result property="more" column="more" javaType="java.lang.String"/>
     </resultMap>
 
-    <select id="getNewsListByRank" resultMap="rankweibo" parameterType="int">
-        select * from rank_weibo where rank = #{rank} and add_date >= all(select add_date from rank_weibo where rank = #{rank}) limit 0,1
-    </select>
-
-    <select id="getRankList" resultType="int">
-        select rank from rank_weibo group by rank
-    </select>
-
     <select id="getNewsList" resultMap="rankweibo">
-        select * from rank_weibo order by id desc limit 0,50
+        select * from rank_weibo order by id desc limit 0,100
     </select>
+
 
 </mapper>

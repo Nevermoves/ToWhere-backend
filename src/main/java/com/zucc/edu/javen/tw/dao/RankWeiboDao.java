@@ -6,9 +6,6 @@ import java.util.List;
 
 public interface RankWeiboDao {
 
-    List<RankWeiboDao> getNewsListByRank(int rank);
-
-    List<Integer> getRankList();
-
     List<RankWeibo> getNewsList();
+
 }

@@ -19,7 +19,7 @@ public class NewsController {
     @Autowired
     private NewsService service;
 
-    @GetMapping("/zonghe/wangyixinwen")
+    @GetMapping("/zonghe/wangyi")
     JSONObject getWangyixinwenNews(){
 
         JSONObject jsonObject = service.getAllNewsList("163");
@@ -46,28 +46,28 @@ public class NewsController {
         return jsonObject;
     }
 
-    @GetMapping("/shiping/bilibili")
+    @GetMapping("/shipin/bilibili")
     JSONObject getBilibiliNews(){
 
         JSONObject jsonObject = service.getAllNewsList("bilibili");
         return jsonObject;
     }
 
-    @GetMapping("/keji/guoke")
+    @GetMapping("/keji/guokr")
     JSONObject getGuokeNews(){
 
         JSONObject jsonObject = service.getAllNewsList("guoke");
         return jsonObject;
     }
 
-    @GetMapping("/shiping/pearvedio")
+    @GetMapping("/shipin/pearvideo")
     JSONObject getPearvedioNews(){
 
         JSONObject jsonObject = service.getAllNewsList("pearvedio");
         return jsonObject;
     }
 
-    @GetMapping("/shiping/pengpai")
+    @GetMapping("/shipin/pengpai")
     JSONObject getPengpaiNews(){
 
         JSONObject jsonObject = service.getAllNewsList("pengpai");
@@ -95,7 +95,7 @@ public class NewsController {
         return jsonObject;
     }
 
-    @GetMapping("/keji/hackernews")
+    @GetMapping("/keji/yc")
     JSONObject getYcNews(){
 
         JSONObject jsonObject = service.getAllNewsList("yc");

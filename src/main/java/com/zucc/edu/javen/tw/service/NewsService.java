@@ -34,7 +34,7 @@ public class NewsService implements NewsServiceImpl {
         for(RankWeibo weibo: list){
             JSONObject js = (JSONObject) JSONObject.toJSON(weibo);
             js.remove("url");
-            js.put("url","www.anyknew.com/go/"+weibo.getUrl());
+            js.put("url","https://www.anyknew.com/go/"+weibo.getUrl());
             js.remove("id");
             js.remove("getdate");
             js.remove("adddate");
@@ -66,7 +66,7 @@ public class NewsService implements NewsServiceImpl {
             JSONObject js = (JSONObject) JSONObject.toJSON(o);
             String url = js.getString("url");
             js.remove("url");
-            js.put("url","www.anyknew.com/go/"+url);
+            js.put("url","https://www.anyknew.com/go/"+url);
             js.remove("id");
             js.remove("getdate");
             js.remove("adddate");

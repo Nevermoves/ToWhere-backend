@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface RankPearvedioDao {
     List<RankPearvedio> getRankpearvedioNewsList();
+
+    List<RankPearvedio> getHisRankpearvedioNewsList(String getdate);
 }

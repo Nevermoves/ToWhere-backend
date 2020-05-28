@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface Rank36krDao {
     List<Rank36kr> getRank36krNewsList();
+
+    List<Rank36kr> getHisRank36krNewsList(String getdate);
 }

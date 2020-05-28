@@ -8,10 +8,7 @@ import com.zucc.edu.javen.tw.util.MyBatiesUtil;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 @Service
 public class NewsService implements NewsServiceImpl {
@@ -28,7 +25,6 @@ public class NewsService implements NewsServiceImpl {
             }
         }
         list.sort(Comparator.comparing(RankWeibo::getRank));
-        last.sort(Comparator.comparing(RankWeibo::getRank));
         JSONObject jsonObject = new JSONObject();
         List<JSONObject> jsonObjects = new ArrayList<JSONObject>();
         for(RankWeibo weibo: list){
@@ -55,10 +51,14 @@ public class NewsService implements NewsServiceImpl {
 
     @Override
     public JSONObject getAllNewsList(String name) {
+        long start = System.currentTimeMillis();
         SqlSession session = MyBatiesUtil.getSession();
+        System.out.println(System.currentTimeMillis()-start);
         JSONObject jsonObject = new JSONObject();
         String daoName = DaoUtil.getDaoName(name);
+        System.out.println(System.currentTimeMillis()-start);
         List<Object> entities = session.selectList(daoName);
+        System.out.println(System.currentTimeMillis()-start);
         List<JSONObject> jsonObjects = new ArrayList<JSONObject>();
         List<JSONObject> list = null;
         List<JSONObject> last = null;
@@ -94,4 +94,31 @@ public class NewsService implements NewsServiceImpl {
         jsonObject.put("data",list);
         return jsonObject;
     }
+
+    @Override
+    public JSONObject getAllHisNewsList(String name, String date){
+        SqlSession session = MyBatiesUtil.getSession();
+        JSONObject jsonObject = new JSONObject();
+        String daoname = DaoUtil.getPastDaoName(name);
+//        String datasdf = DaoUtil.getGetDate(date);
+//        List<Object> entities = session.selectList(daoname,datasdf);
+        List<Object> entities = session.selectList(daoname,date);
+        List<JSONObject> list = new ArrayList<JSONObject>();
+        for(Object o:entities){
+            JSONObject js = (JSONObject) JSONObject.toJSON(o);
+            String url = js.getString("url");
+            js.remove("url");
+            js.put("url","https://www.anyknew.com/go/"+url);
+            js.remove("id");
+            js.remove("getdate");
+            js.remove("adddate");
+            list.add(js);
+            if(js.getInteger("rank")==1)break;
+        }
+        Collections.sort(list,(a, b) -> Integer.compare(a.getInteger("rank"),b.getInteger("rank")));
+        jsonObject.put("num",list.size());
+        jsonObject.put("data",list);
+        return jsonObject;
+    }
+
 }

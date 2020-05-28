@@ -15,4 +15,7 @@
         select * from rank_36kr order by id desc limit 0,20
     </select>
 
+    <select id="getHisRank36krNewsList" resultMap="rank36kr" parameterType="string">
+        select * from rank_36kr where get_date &lt; #{getdate} order by id desc limit 0,10
+    </select>
 </mapper>

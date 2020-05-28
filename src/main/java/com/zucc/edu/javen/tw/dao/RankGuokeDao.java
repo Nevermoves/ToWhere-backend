@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface RankGuokeDao {
     List<RankGuoke> getRankguokeNewsList();
+
+    List<RankGuoke> getHisRankguokeNewsList(String getdate);
 }

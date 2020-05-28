@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface RankBiliBiliDao {
     List<RankBilibili> getRankbilibiliNewsList();
+
+    List<RankBilibili> getHisRankbilibiliNewsList(String getdate);
 }

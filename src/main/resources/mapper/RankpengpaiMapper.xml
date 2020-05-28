@@ -14,4 +14,8 @@
     <select id="getRankpengpaiNewsList" resultMap="rankpengpai">
         select * from rank_pengpai order by id desc limit 0,100
     </select>
+
+    <select id="getHisRankpengpaiNewsList" resultMap="rankpengpai" parameterType="string">
+        select * from rank_pengpai where get_date &lt; #{getdate} order by id desc limit 0,50
+    </select>
 </mapper>

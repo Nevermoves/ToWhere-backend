@@ -14,4 +14,8 @@
     <select id="getRankpearvedioNewsList" resultMap="rankpearvedio">
         select * from rank_pearvedio order by id desc limit 0,110
     </select>
+
+    <select id="getHisRankpearvedioNewsList" resultMap="rankpearvedio" parameterType="string">
+        select * from rank_pearvedio where get_date &lt; #{getdate} order by id desc limit 0,55
+    </select>
 </mapper>

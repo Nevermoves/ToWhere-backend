@@ -14,4 +14,8 @@
     <select id="getRankguokeNewsList" resultMap="rankguoke">
         select * from rank_guoke order by id desc limit 0,100
     </select>
+
+    <select id="getHisRankguokeNewsList" resultMap="rankguoke" parameterType="string">
+        select * from rank_guoke where get_date &lt; #{getdate} order by id desc limit 0,50
+    </select>
 </mapper>

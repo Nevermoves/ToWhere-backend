@@ -1,6 +1,7 @@
 package com.zucc.edu.javen.tw.service;
 
 import com.alibaba.fastjson.JSONObject;
+import com.zucc.edu.javen.tw.anno.GetLnquire;
 import com.zucc.edu.javen.tw.entity.RankWeibo;
 import com.zucc.edu.javen.tw.service.impl.NewsServiceImpl;
 import com.zucc.edu.javen.tw.util.DaoUtil;
@@ -53,6 +54,7 @@ public class NewsService implements NewsServiceImpl {
     public JSONObject getAllNewsList(String name) {
         SqlSession session = MyBatiesUtil.getSession();
         JSONObject jsonObject = new JSONObject();
+//        GetLnquire.getUrl(name);
         String daoName = DaoUtil.getDaoName(name);
         List<Object> entities = session.selectList(daoName);
         List<JSONObject> jsonObjects = new ArrayList<JSONObject>();

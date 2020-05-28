@@ -22,7 +22,7 @@ public class NewsController {
 
         JSONObject jsonObject = null;
         date = JsonUtil.getDate(date);
-        if (date.equals("")){
+        if (date == null||date.equals("")){
             jsonObject = service.getAllNewsList(Rank163.class.getName());
         }
         else {
@@ -35,7 +35,7 @@ public class NewsController {
     JSONObject get36keNews(@RequestBody String date){
         JSONObject jsonObject = null;
         date = JsonUtil.getDate(date);
-        if (date.equals("")){
+        if (date == null||date.equals("")){
             jsonObject = service.getAllNewsList(Rank36kr.class.getName());
         }
         else {
@@ -50,7 +50,7 @@ public class NewsController {
         date = JsonUtil.getDate(date);
         JSONObject hotnews = null;
         JSONObject tiebanews = null;
-        if(date.equals("")){
+        if(date == null||date.equals("")){
             hotnews = service.getAllNewsList(RankBaidu.class.getName());
             tiebanews = service.getAllNewsList(RankTieba.class.getName());
         }
@@ -69,7 +69,7 @@ public class NewsController {
     JSONObject getBilibiliNews(@RequestBody String date){
         JSONObject jsonObject = null;
         date = JsonUtil.getDate(date);
-        if (date.equals("")){
+        if (date == null||date.equals("")){
             jsonObject = service.getAllNewsList(RankBilibili.class.getName());
         }
         else {
@@ -82,7 +82,7 @@ public class NewsController {
     JSONObject getGuokeNews(@RequestBody String date){
         JSONObject jsonObject = null;
         date = JsonUtil.getDate(date);
-        if (date.equals("")){
+        if (date == null||date.equals("")){
             jsonObject = service.getAllNewsList(RankGuoke.class.getName());
         }
         else {
@@ -95,7 +95,7 @@ public class NewsController {
     JSONObject getPearvedioNews(@RequestBody String date){
         JSONObject jsonObject = null;
         date = JsonUtil.getDate(date);
-        if (date.equals("")){
+        if (date == null||date.equals("")){
             jsonObject = service.getAllNewsList(RankPearvedio.class.getName());
         }
         else {
@@ -108,7 +108,7 @@ public class NewsController {
     JSONObject getPengpaiNews(@RequestBody String date){
         JSONObject jsonObject = null;
         date = JsonUtil.getDate(date);
-        if (date.equals("")){
+        if (date == null||date.equals("")){
             jsonObject = service.getAllNewsList(RankPengpai.class.getName());
         }
         else {
@@ -121,7 +121,7 @@ public class NewsController {
     JSONObject getQdailyNews(@RequestBody String date){
         JSONObject jsonObject = null;
         date = JsonUtil.getDate(date);
-        if (date.equals("")){
+        if (date == null||date.equals("")){
             jsonObject = service.getAllNewsList(RankQdaily.class.getName());
         }
         else {
@@ -134,7 +134,7 @@ public class NewsController {
     JSONObject getToutiaoNews(@RequestBody String date){
         JSONObject jsonObject = null;
         date = JsonUtil.getDate(date);
-        if (date.equals("")){
+        if (date == null||date.equals("")){
             jsonObject = service.getAllNewsList(RankToutiao.class.getName());
         }
         else {
@@ -147,7 +147,7 @@ public class NewsController {
     JSONObject getWeiboNews(@RequestBody String date){
         JSONObject jsonObject = null;
         date = JsonUtil.getDate(date);
-        if (date.equals("")){
+        if (date == null||date.equals("")){
             jsonObject = service.getAllNewsList(RankWeibo.class.getName());
         }
         else {
@@ -160,7 +160,7 @@ public class NewsController {
     JSONObject getYcNews(@RequestBody String date){
         JSONObject jsonObject = null;
         date = JsonUtil.getDate(date);
-        if (date.equals("")){
+        if (date == null||date.equals("")){
             jsonObject = service.getAllNewsList(RankYc.class.getName());
         }
         else {
@@ -175,7 +175,7 @@ public class NewsController {
         date = JsonUtil.getDate(date);
         JSONObject zhihu = null;
         JSONObject word = null;
-        if(date.equals("")){
+        if(date == null||date.equals("")){
             zhihu = service.getAllNewsList(RankZhihu.class.getName());
             word = service.getAllNewsList(RankZhihuword.class.getName());
         }

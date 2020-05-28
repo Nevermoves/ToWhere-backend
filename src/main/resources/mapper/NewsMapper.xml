@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zucc.edu.javen.tw.dao.NewsDao">
+
+    <resultMap id="newsmap" type="com.zucc.edu.javen.tw.anno.NewsResult">
+        <result property="url" column="iid" javaType="java.lang.String"/>
+        <result property="rank" column="rank" javaType="java.lang.Integer"/>
+        <result property="title" column="title" javaType="java.lang.String"/>
+    </resultMap>
+
+    <resultMap id="newsmoremap" type="com.zucc.edu.javen.tw.anno.NewsMoreResult">
+        <result property="url" column="iid" javaType="java.lang.String"/>
+        <result property="rank" column="rank" javaType="java.lang.Integer"/>
+        <result property="title" column="title" javaType="java.lang.String"/>
+        <result property="more" column="more" javaType="java.lang.String"/>
+    </resultMap>
+
+    <select id="getNews" resultMap="newsmap" parameterType="com.zucc.edu.javen.tw.anno.NewsForm">
+        select * from ${table} order by ${column} desc limit ${limit}
+    </select>
+</mapper>

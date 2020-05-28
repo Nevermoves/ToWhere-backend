@@ -65,18 +65,18 @@ public class NewsController {
         return jsonObject;
     }
 
-    @PostMapping("/shipin/bilibili")
-    JSONObject getBilibiliNews(@RequestBody String date){
-        JSONObject jsonObject = null;
-        date = JsonUtil.getDate(date);
-        if (date == null||date.equals("")){
-            jsonObject = service.getAllNewsList(RankBilibili.class.getName());
-        }
-        else {
-            jsonObject = service.getAllHisNewsList(RankBilibili.class.getName(),date);
-        }
-        return jsonObject;
-    }
+//    @PostMapping("/shipin/bilibili")
+//    JSONObject getBilibiliNews(@RequestBody String date){
+//        JSONObject jsonObject = null;
+//        date = JsonUtil.getDate(date);
+//        if (date == null||date.equals("")){
+//            jsonObject = service.getAllNewsList(RankBilibili.class.getName());
+//        }
+//        else {
+//            jsonObject = service.getAllHisNewsList(RankBilibili.class.getName(),date);
+//        }
+//        return jsonObject;
+//    }
 
     @PostMapping("/keji/guokr")
     JSONObject getGuokeNews(@RequestBody String date){

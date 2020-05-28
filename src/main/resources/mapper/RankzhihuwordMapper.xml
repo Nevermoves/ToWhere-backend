@@ -14,4 +14,8 @@
     <select id="getRankzhihuwordNewsList" resultMap="rankwordzhihu">
         select * from word_zhihu order by id desc limit 0,20
     </select>
+
+    <select id="getHisRankzhihuwordNewsList" resultMap="rankwordzhihu" parameterType="string">
+        select * from word_zhihu where get_date &lt; #{getdate} order by id desc limit 0,10
+    </select>
 </mapper>

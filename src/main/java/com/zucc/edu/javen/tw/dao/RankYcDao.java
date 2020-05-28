@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface RankYcDao {
     List<RankYc> getRankycNewsList();
+
+    List<RankYc> getHisRankycNewsList();
 }

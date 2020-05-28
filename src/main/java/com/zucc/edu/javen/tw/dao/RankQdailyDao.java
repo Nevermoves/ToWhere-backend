@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface RankQdailyDao {
     List<RankQdaily> getRankqdailyNewsList();
+
+    List<RankQdaily> getHisRankqdailyNewsList();
 }

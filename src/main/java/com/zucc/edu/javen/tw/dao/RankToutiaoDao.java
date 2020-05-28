@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface RankToutiaoDao {
     List<RankToutiao> getRanktoutiaoNewsList();
+
+    List<RankToutiao> getHisRanktoutiaoNewsList();
 }

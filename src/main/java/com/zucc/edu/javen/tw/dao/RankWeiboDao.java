@@ -8,4 +8,6 @@ public interface RankWeiboDao {
 
     List<RankWeibo> getRankweiboNewsList();
 
+    List<RankWeibo> getHisRankweiboNewsList();
+
 }

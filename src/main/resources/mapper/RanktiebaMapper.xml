@@ -15,4 +15,8 @@
     <select id="getRanktiebaNewsList" resultMap="ranktieba">
         select * from tieba order by id desc limit 0,60
     </select>
+
+    <select id="getHisRanktiebaNewsList" resultMap="ranktieba" parameterType="string">
+        select * from tieba order by id desc limit 0,30
+    </select>
 </mapper>

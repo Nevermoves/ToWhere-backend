@@ -7,4 +7,6 @@ import java.util.List;
 public interface RankTiebaDao {
 
     List<RankTieba> getRanktiebaNewsList();
+
+    List<RankTieba> getHisRanktiebaNewsList(String getdate);
 }

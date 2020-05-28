@@ -14,4 +14,8 @@
     <select id="getRankqdailyNewsList" resultMap="rankqdaily">
         select * from rank_qdaily order by id desc limit 0,100
     </select>
+
+    <select id="getHisRankqdailyNewsList" resultMap="rankqdaily" parameterType="string">
+        select * from rank_qdaily where get_date &lt; #{getdate} order by id desc limit 0,50
+    </select>
 </mapper>

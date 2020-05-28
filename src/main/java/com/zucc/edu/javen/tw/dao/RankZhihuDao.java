@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface RankZhihuDao {
     List<RankZhihu> getRankzhihuNewsList();
+
+    List<RankZhihu> getHisRankzhihuNewsList();
 }

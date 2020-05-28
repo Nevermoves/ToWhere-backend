@@ -14,4 +14,8 @@
     <select id="getRankycNewsList" resultMap="rankyc">
         select * from rank_yc order by id desc limit 0,60
     </select>
+
+    <select id="getHisRankycNewsList" resultMap="rankyc" parameterType="string">
+        select * from rank_yc where get_date &lt; #{getdate} order by id desc limit 0,30
+    </select>
 </mapper>

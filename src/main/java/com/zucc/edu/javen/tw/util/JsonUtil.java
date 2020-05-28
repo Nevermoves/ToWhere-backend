@@ -4,7 +4,9 @@ import com.alibaba.fastjson.JSONObject;
 
 public class JsonUtil {
 
-//    public JSONObject getJson(T<> entity){
-//
-//    }
+    public static String getDate(String date){
+        JSONObject datejson = JSONObject.parseObject(date);
+        date = datejson.getString("date");
+        return date;
+    }
 }

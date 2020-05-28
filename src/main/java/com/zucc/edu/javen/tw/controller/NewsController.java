@@ -3,6 +3,7 @@ package com.zucc.edu.javen.tw.controller;
 import com.alibaba.fastjson.JSONObject;
 import com.zucc.edu.javen.tw.entity.*;
 import com.zucc.edu.javen.tw.service.NewsService;
+import com.zucc.edu.javen.tw.util.JsonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,23 +24,14 @@ public class NewsController {
         return jsonObject;
     }
 
-//    @PostMapping("/keji/kr36")
-//    JSONObject get36keNews(@RequestParam Date date){
-//        JSONObject jsonObject = null;
-//        if (date == null )jsonObject = service.getAllNewsList("36kr");
-//        else jsonObject = service.getAllNewsList("36kr");
-//        return jsonObject;
-//    }
-
     @PostMapping("/keji/kr36")
     JSONObject get36keNews(@RequestBody String date){
         JSONObject jsonObject = null;
-        if (date == " " ){
-            System.out.println(1);
+        date = JsonUtil.getDate(date);
+        if (date.equals("")){
             jsonObject = service.getAllNewsList(Rank36kr.class.getName());
         }
         else {
-            System.out.println(2);
             jsonObject = service.getAllHisNewsList(Rank36kr.class.getName(),date);
         }
         return jsonObject;

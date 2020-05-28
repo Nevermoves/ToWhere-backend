@@ -51,14 +51,10 @@ public class NewsService implements NewsServiceImpl {
 
     @Override
     public JSONObject getAllNewsList(String name) {
-        long start = System.currentTimeMillis();
         SqlSession session = MyBatiesUtil.getSession();
-        System.out.println(System.currentTimeMillis()-start);
         JSONObject jsonObject = new JSONObject();
         String daoName = DaoUtil.getDaoName(name);
-        System.out.println(System.currentTimeMillis()-start);
         List<Object> entities = session.selectList(daoName);
-        System.out.println(System.currentTimeMillis()-start);
         List<JSONObject> jsonObjects = new ArrayList<JSONObject>();
         List<JSONObject> list = null;
         List<JSONObject> last = null;

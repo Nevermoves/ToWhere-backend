@@ -9,4 +9,6 @@ public @interface Lnquire {
     String table();
 
     int limit();
+
+    boolean isMore() default false;
 }

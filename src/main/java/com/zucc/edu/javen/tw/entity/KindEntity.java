@@ -2,8 +2,8 @@ package com.zucc.edu.javen.tw.entity;
 
 public class KindEntity {
 
-    int id;
-    String kidnap;
+    private int id;
+    private String kidnap;
 
     public int getId() {
         return id;

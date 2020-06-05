@@ -1,10 +1,11 @@
-package com.zucc.edu.javen.tw.anno;
+package com.zucc.edu.javen.tw.frame;
 
-public class NewsResult {
+public class NewsMoreResult {
 
-    int rank;
-    String url;
-    String title;
+    private int rank;
+    private String url;
+    private String title;
+    private String more;
 
     public int getRank() {
         return rank;
@@ -28,5 +29,13 @@ public class NewsResult {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getMore() {
+        return more;
+    }
+
+    public void setMore(String more) {
+        this.more = more;
     }
 }

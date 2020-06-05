@@ -1,7 +1,6 @@
 package com.zucc.edu.javen.tw.service;
 
 import com.alibaba.fastjson.JSONObject;
-import com.zucc.edu.javen.tw.anno.GetLnquire;
 import com.zucc.edu.javen.tw.entity.RankWeibo;
 import com.zucc.edu.javen.tw.service.impl.NewsServiceImpl;
 import com.zucc.edu.javen.tw.util.DaoUtil;
@@ -111,7 +110,7 @@ public class NewsService implements NewsServiceImpl {
             js.remove("getdate");
             js.remove("adddate");
             list.add(js);
-            if(js.getInteger("rank")==1)break;
+            if(js.getInteger("rank") == 1)break;
         }
         Collections.sort(list,(a, b) -> Integer.compare(a.getInteger("rank"),b.getInteger("rank")));
         jsonObject.put("num",list.size());

@@ -2,9 +2,9 @@ package com.zucc.edu.javen.tw.entity;
 
 public class PickEntity {
 
-    int id;
-    int userid;
-    String medianame;
+    private int id;
+    private int userid;
+    private String medianame;
 
     public int getId() {
         return id;

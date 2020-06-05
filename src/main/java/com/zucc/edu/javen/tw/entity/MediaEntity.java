@@ -2,11 +2,11 @@ package com.zucc.edu.javen.tw.entity;
 
 public class MediaEntity {
 
-    int id;
-    int kindid;
-    String medianame;
-    String tablename;
-    String mediaurl;
+    private int id;
+    private int kindid;
+    private String medianame;
+    private String tablename;
+    private String mediaurl;
 
     public int getId() {
         return id;

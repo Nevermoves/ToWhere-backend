@@ -2,9 +2,9 @@ package com.zucc.edu.javen.tw.entity;
 
 public class UserEntity {
 
-    int id;
-    String username;
-    String password;
+    private int id;
+    private String username;
+    private String password;
 
     public int getId() {
         return id;

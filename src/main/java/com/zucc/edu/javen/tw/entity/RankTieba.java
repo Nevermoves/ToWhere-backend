@@ -1,19 +1,19 @@
 package com.zucc.edu.javen.tw.entity;
 
-import com.zucc.edu.javen.tw.anno.Lnquire;
+import com.zucc.edu.javen.tw.frame.Lnquire;
 
 import java.util.Date;
 
 @Lnquire(table = "tieba",limit = 30,isMore = true)
 public class RankTieba {
 
-    int id;
-    int url;
-    String title;
-    int adddate;
-    Date getdate;
-    int rank;
-    String more;
+    private int id;
+    private int url;
+    private String title;
+    private int adddate;
+    private Date getdate;
+    private int rank;
+    private String more;
 
     public int getId() {
         return id;

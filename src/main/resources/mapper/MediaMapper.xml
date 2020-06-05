@@ -10,6 +10,7 @@
         <result property="tablename" column="tablename" javaType="java.lang.String"/>
         <result property="mediaurl" column="mediaurl" javaType="java.lang.String"/>
         <result property="ranknum" column="ranknum" javaType="java.lang.Integer"/>
+        <result property="returnname" column="returnname" javaType="java.lang.String"/>
     </resultMap>
 
     <select id="getMedia" resultMap="mediamap" parameterType="string">

@@ -59,7 +59,8 @@ public class TestService implements NewsServiceImpl {
         JSONObject jsonObject = new JSONObject();
         List<JSONObject> list = null;
         List<JSONObject> last = null;
-        List<JSONObject> jsonObjects = BuildSession.getList(name);
+//        List<JSONObject> jsonObjects = BuildSession.getList(name);
+        List<JSONObject> jsonObjects = new ArrayList<JSONObject>();
         for(int i=0;i<jsonObjects.size();i++){
             if(jsonObjects.get(i).getInteger("rank")==1){
                 list = jsonObjects.subList(0,i+1);
@@ -86,7 +87,8 @@ public class TestService implements NewsServiceImpl {
     @Override
     public JSONObject getAllHisNewsList(String name, String date) {
         JSONObject jsonObject = new JSONObject();
-        List<JSONObject> list = BuildSession.getHisList(name,date);
+//        List<JSONObject> list = BuildSession.getHisList(name,date);
+        List<JSONObject> list = new ArrayList<JSONObject>();
         for(int i = 0;i < list.size();i ++){
             if(list.get(i).getInteger("rank") == 1){
                 list = list.subList(0,i+1);

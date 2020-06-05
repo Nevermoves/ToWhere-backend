@@ -1,6 +1,7 @@
 package com.zucc.edu.javen.tw.frame;
 
 import com.alibaba.fastjson.JSONObject;
+import com.zucc.edu.javen.tw.entity.MediaEntity;
 import com.zucc.edu.javen.tw.util.MyBatiesUtil;
 import org.apache.ibatis.session.SqlSession;
 
@@ -9,9 +10,9 @@ import java.util.List;
 import java.util.Map;
 
 public class BuildSession {
-    public static List<JSONObject> getList(String className){
+    public static List<JSONObject> getList(MediaEntity media){
         SqlSession session = MyBatiesUtil.getSession();
-        NewsForm form = GetLnquire.getform(className);
+        NewsForm form = GetLnquire.getform(media);
         List<Map<String,Object>> list = session.selectList(form.getDao(),form);
         List<JSONObject> jsonObjects = new ArrayList<JSONObject>();
         for(Object o:list){
@@ -27,9 +28,9 @@ public class BuildSession {
         }
         return jsonObjects;
     }
-    public static List<JSONObject> getHisList(String className,String getdate){
+    public static List<JSONObject> getHisList(MediaEntity media,String getdate){
         SqlSession session = MyBatiesUtil.getSession();
-        NewsForm form = GetLnquire.getHisForm(className,getdate);
+        NewsForm form = GetLnquire.getHisForm(media,getdate);
         List<Object> list = session.selectList(form.getDao(),form);
         List<JSONObject> jsonObjects = new ArrayList<JSONObject>();
         for(Object o:list){
@@ -43,5 +44,11 @@ public class BuildSession {
             jsonObjects.add(js);
         }
         return jsonObjects;
+    }
+
+    public static List<MediaEntity> getMedias(String name){
+        SqlSession session = MyBatiesUtil.getSession();
+        List<MediaEntity> entities = session.selectList("getMedia",name);
+        return entities;
     }
 }

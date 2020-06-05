@@ -1,6 +1,7 @@
 package com.zucc.edu.javen.tw.service;
 
 import com.alibaba.fastjson.JSONObject;
+import com.zucc.edu.javen.tw.entity.MediaEntity;
 import com.zucc.edu.javen.tw.entity.RankWeibo;
 import com.zucc.edu.javen.tw.frame.BuildSession;
 import com.zucc.edu.javen.tw.service.impl.NewsServiceImpl;
@@ -55,43 +56,69 @@ public class NewsService implements NewsServiceImpl {
         JSONObject jsonObject = new JSONObject();
         List<JSONObject> list = null;
         List<JSONObject> last = null;
-        List<JSONObject> jsonObjects = BuildSession.getList(name);
-        for(int i=0;i<jsonObjects.size();i++){
-            if(jsonObjects.get(i).getInteger("rank")==1){
-                list = jsonObjects.subList(0,i+1);
-                last = jsonObjects.subList(i+1,i*2+1);
-                break;
-            }
-        }
-        for(JSONObject listjs:list){
-            boolean flag = true;
-            for(JSONObject lastjs:last){
-                if(listjs.get("title").equals(lastjs.get("title"))){
-                    flag = false;
+        List<MediaEntity> mediaEntities = BuildSession.getMedias(name);
+        for(MediaEntity media:mediaEntities){
+            List<JSONObject> jsonObjects = BuildSession.getList(media);
+            for(int i=0;i<jsonObjects.size();i++){
+                if(jsonObjects.get(i).getInteger("rank")==1){
+                    list = jsonObjects.subList(0,i+1);
+                    last = jsonObjects.subList(i+1,i*2+1);
                     break;
                 }
             }
-            listjs.put("new_tag",flag);
+            for(JSONObject listjs:list){
+                boolean flag = true;
+                for(JSONObject lastjs:last){
+                    if(listjs.get("title").equals(lastjs.get("title"))){
+                        flag = false;
+                        break;
+                    }
+                }
+                listjs.put("new_tag",flag);
+            }
+            Collections.sort(list,(a, b) -> Integer.compare(a.getInteger("rank"),b.getInteger("rank")));
+            if(mediaEntities.size()==1){
+                jsonObject.put("num",list.size());
+                jsonObject.put("data",list);
+            }
+            else{
+                JSONObject js = new JSONObject();
+                js.put("num",list.size());
+                js.put("data",list);
+                String[] returnname = media.getReturnname().split("/");
+                js.put("name",returnname[1]);
+                jsonObject.put(returnname[0],js);
+            }
         }
-        Collections.sort(list,(a, b) -> Integer.compare(a.getInteger("rank"),b.getInteger("rank")));
-        jsonObject.put("num",list.size());
-        jsonObject.put("data",list);
         return jsonObject;
     }
 
     @Override
     public JSONObject getAllHisNewsList(String name, String date){
         JSONObject jsonObject = new JSONObject();
-        List<JSONObject> list = BuildSession.getHisList(name,date);
-        for(int i = 0;i < list.size();i ++){
-            if(list.get(i).getInteger("rank") == 1){
-                list = list.subList(0,i+1);
-                break;
+        List<MediaEntity> mediaEntities = BuildSession.getMedias(name);
+        for(MediaEntity media:mediaEntities){
+            List<JSONObject> list = BuildSession.getHisList(media,date);
+            for(int i = 0;i < list.size();i ++){
+                if(list.get(i).getInteger("rank") == 1){
+                    list = list.subList(0,i+1);
+                    break;
+                }
+            }
+            Collections.sort(list,(a, b) -> Integer.compare(a.getInteger("rank"),b.getInteger("rank")));
+            if(mediaEntities.size()==1){
+                jsonObject.put("num",list.size());
+                jsonObject.put("data",list);
+            }
+            else{
+                JSONObject js = new JSONObject();
+                js.put("num",list.size());
+                js.put("data",list);
+                String[] returnname = media.getReturnname().split("/");
+                js.put("name",returnname[1]);
+                jsonObject.put(returnname[0],js);
             }
         }
-        Collections.sort(list,(a, b) -> Integer.compare(a.getInteger("rank"),b.getInteger("rank")));
-        jsonObject.put("num",list.size());
-        jsonObject.put("data",list);
         return jsonObject;
     }
 

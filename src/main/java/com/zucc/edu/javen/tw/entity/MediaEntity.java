@@ -8,6 +8,7 @@ public class MediaEntity {
     private String tablename;
     private String mediaurl;
     private int ranknum;
+    private String returnname;
 
     public int getId() {
         return id;
@@ -55,5 +56,13 @@ public class MediaEntity {
 
     public void setRanknum(int ranknum) {
         this.ranknum = ranknum;
+    }
+
+    public String getReturnname() {
+        return returnname;
+    }
+
+    public void setReturnname(String returnname) {
+        this.returnname = returnname;
     }
 }

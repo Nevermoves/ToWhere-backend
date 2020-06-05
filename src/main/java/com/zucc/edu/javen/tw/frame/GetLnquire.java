@@ -24,25 +24,21 @@ public class GetLnquire {
         return entity;
     }
 
-    public static NewsForm getform(String className){
-//        Lnquire lnquire = getLnquire(className);
-        MediaEntity entity = getMedia(className);
+    public static NewsForm getform(MediaEntity media){
         NewsForm form = new NewsForm();
         form.setColumn("order by id desc");
         form.setDao("getNews");
-        form.setLimit(entity.getRanknum()*2);
-        form.setTable(entity.getTablename());
+        form.setLimit(media.getRanknum()*2);
+        form.setTable(media.getTablename());
         return form;
     }
 
-    public static NewsForm getHisForm(String className,String getdate){
-//        Lnquire lnquire = getLnquire(className);
-        MediaEntity entity = getMedia(className);
+    public static NewsForm getHisForm(MediaEntity media,String getdate){
         NewsForm form = new NewsForm();
         form.setColumn("where get_date < '"+getdate+"' order by id desc");
         form.setDao("getNews");
-        form.setLimit(entity.getRanknum()*2);
-        form.setTable(entity.getTablename());
+        form.setLimit(media.getRanknum()*2);
+        form.setTable(media.getTablename());
         return form;
     }
 }

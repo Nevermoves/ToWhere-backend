@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Date;
 
 @RestController
 public class NewsController {
@@ -16,10 +17,18 @@ public class NewsController {
     private NewsService service;
 
     @PostMapping("/*/*")
-    JSONObject getWangyixinwenNews(HttpServletRequest request){
+    JSONObject getNews(HttpServletRequest request){
         String[] urls = request.getRequestURL().toString().split("/");
         String url = urls[urls.length-1];
         String date = JsonUtil.getBody(request);
+        JSONObject jsonObject = null;
+        String getDate = JsonUtil.getDate(date);
+        if(getDate!=null)jsonObject = service.getAllHisNewsList(url,getDate);
+        else jsonObject = service.getAllNewsList(url);
+        return jsonObject;
+    }
+
+    JSONObject getNewstext(String url, Date date){
         JSONObject jsonObject = null;
         String getDate = JsonUtil.getDate(date);
         if(getDate!=null)jsonObject = service.getAllHisNewsList(url,getDate);

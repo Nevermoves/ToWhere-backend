@@ -17,11 +17,19 @@ public class NewsController {
     @Autowired
     private NewsService service;
 
-    @PostMapping("*/*")
-    JSONObject getWangyixinwenNews(HttpServletRequest request){
+    @PostMapping("/*/*")
+    JSONObject getNews(HttpServletRequest request){
         String[] urls = request.getRequestURL().toString().split("/");
         String url = urls[urls.length-1];
         String date = JsonUtil.getBody(request);
+        JSONObject jsonObject = null;
+        String getDate = JsonUtil.getDate(date);
+        if(getDate!=null)jsonObject = service.getAllHisNewsList(url,getDate);
+        else jsonObject = service.getAllNewsList(url);
+        return jsonObject;
+    }
+
+    JSONObject getNewstext(String url,Date date){
         JSONObject jsonObject = null;
         String getDate = JsonUtil.getDate(date);
         if(getDate!=null)jsonObject = service.getAllHisNewsList(url,getDate);

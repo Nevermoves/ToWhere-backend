@@ -1,15 +1,13 @@
 package com.zucc.edu.javen.tw.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import com.zucc.edu.javen.tw.entity.*;
 import com.zucc.edu.javen.tw.service.NewsService;
 import com.zucc.edu.javen.tw.util.JsonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.Date;
-import java.util.Map;
 
 @RestController
 public class NewsController {
@@ -17,7 +15,7 @@ public class NewsController {
     @Autowired
     private NewsService service;
 
-    @PostMapping("*/*")
+    @PostMapping("/*/*")
     JSONObject getWangyixinwenNews(HttpServletRequest request){
         String[] urls = request.getRequestURL().toString().split("/");
         String url = urls[urls.length-1];

@@ -7,6 +7,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class JsonUtil {
 
@@ -14,6 +15,13 @@ public class JsonUtil {
         JSONObject datejson = JSONObject.parseObject(date);
         date = datejson.getString("date");
         return date;
+    }
+
+    public static String getDate(Date date){
+        if(date == null)return null;
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        String getdate = sdf.format(date);
+        return getdate;
     }
 
     public static String getDate(String date){

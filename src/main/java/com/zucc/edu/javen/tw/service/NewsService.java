@@ -2,6 +2,7 @@ package com.zucc.edu.javen.tw.service;
 
 import com.alibaba.fastjson.JSONObject;
 import com.zucc.edu.javen.tw.entity.RankWeibo;
+import com.zucc.edu.javen.tw.frame.BuildSession;
 import com.zucc.edu.javen.tw.service.impl.NewsServiceImpl;
 import com.zucc.edu.javen.tw.util.DaoUtil;
 import com.zucc.edu.javen.tw.util.MyBatiesUtil;
@@ -51,24 +52,10 @@ public class NewsService implements NewsServiceImpl {
 
     @Override
     public JSONObject getAllNewsList(String name) {
-        SqlSession session = MyBatiesUtil.getSession();
         JSONObject jsonObject = new JSONObject();
-//        GetLnquire.getUrl(name);
-        String daoName = DaoUtil.getDaoName(name);
-        List<Object> entities = session.selectList(daoName);
-        List<JSONObject> jsonObjects = new ArrayList<JSONObject>();
         List<JSONObject> list = null;
         List<JSONObject> last = null;
-        for(Object o:entities){
-            JSONObject js = (JSONObject) JSONObject.toJSON(o);
-            String url = js.getString("url");
-            js.remove("url");
-            js.put("url","https://www.anyknew.com/go/"+url);
-            js.remove("id");
-            js.remove("getdate");
-            js.remove("adddate");
-            jsonObjects.add(js);
-        }
+        List<JSONObject> jsonObjects = BuildSession.getList(name);
         for(int i=0;i<jsonObjects.size();i++){
             if(jsonObjects.get(i).getInteger("rank")==1){
                 list = jsonObjects.subList(0,i+1);
@@ -94,23 +81,13 @@ public class NewsService implements NewsServiceImpl {
 
     @Override
     public JSONObject getAllHisNewsList(String name, String date){
-        SqlSession session = MyBatiesUtil.getSession();
         JSONObject jsonObject = new JSONObject();
-        String daoname = DaoUtil.getPastDaoName(name);
-//        String datasdf = DaoUtil.getGetDate(date);
-//        List<Object> entities = session.selectList(daoname,datasdf);
-        List<Object> entities = session.selectList(daoname,date);
-        List<JSONObject> list = new ArrayList<JSONObject>();
-        for(Object o:entities){
-            JSONObject js = (JSONObject) JSONObject.toJSON(o);
-            String url = js.getString("url");
-            js.remove("url");
-            js.put("url","https://www.anyknew.com/go/"+url);
-            js.remove("id");
-            js.remove("getdate");
-            js.remove("adddate");
-            list.add(js);
-            if(js.getInteger("rank") == 1)break;
+        List<JSONObject> list = BuildSession.getHisList(name,date);
+        for(int i = 0;i < list.size();i ++){
+            if(list.get(i).getInteger("rank") == 1){
+                list = list.subList(0,i+1);
+                break;
+            }
         }
         Collections.sort(list,(a, b) -> Integer.compare(a.getInteger("rank"),b.getInteger("rank")));
         jsonObject.put("num",list.size());

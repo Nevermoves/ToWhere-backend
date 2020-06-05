@@ -39,7 +39,7 @@ public class HistoryNewsController {
         JSONObject jsonObject = null;
         String getDate = JsonUtil.getDate(date);
         if (date != null&&getDate!=null&&(!getDate.equals(""))){
-            jsonObject = service.getAllHisNewsList(Rank36kr.class.getName(),date);
+            jsonObject = service.getAllHisNewsList(Rank36kr.class.getName(),getDate);
         }
         else {
             jsonObject = service.getAllNewsList(Rank36kr.class.getName());
@@ -73,7 +73,7 @@ public class HistoryNewsController {
         JSONObject jsonObject = null;
         String getDate = JsonUtil.getDate(date);
         if (date != null&&getDate!=null&&(!getDate.equals(""))){
-            jsonObject = service.getAllHisNewsList(RankBilibili.class.getName(),date);
+            jsonObject = service.getAllHisNewsList(RankBilibili.class.getName(),getDate);
         }
         else {
             jsonObject = service.getAllNewsList(RankBilibili.class.getName());
@@ -86,7 +86,7 @@ public class HistoryNewsController {
         JSONObject jsonObject = null;
         String getDate = JsonUtil.getDate(date);
         if (date != null&&getDate!=null&&(!getDate.equals(""))){
-            jsonObject = service.getAllHisNewsList(RankGuoke.class.getName(),date);
+            jsonObject = service.getAllHisNewsList(RankGuoke.class.getName(),getDate);
         }
         else {
             jsonObject = service.getAllNewsList(RankGuoke.class.getName());
@@ -99,7 +99,7 @@ public class HistoryNewsController {
         JSONObject jsonObject = null;
         String getDate = JsonUtil.getDate(date);
         if (date != null&&getDate!=null&&(!getDate.equals(""))){
-            jsonObject = service.getAllHisNewsList(RankPearvedio.class.getName(),date);
+            jsonObject = service.getAllHisNewsList(RankPearvedio.class.getName(),getDate);
         }
         else {
             jsonObject = service.getAllNewsList(RankPearvedio.class.getName());
@@ -112,7 +112,7 @@ public class HistoryNewsController {
         JSONObject jsonObject = null;
         String getDate = JsonUtil.getDate(date);
         if (date != null&&getDate!=null&&(!getDate.equals(""))){
-            jsonObject = service.getAllHisNewsList(RankPengpai.class.getName(),date);
+            jsonObject = service.getAllHisNewsList(RankPengpai.class.getName(),getDate);
         }
         else {
             jsonObject = service.getAllNewsList(RankPengpai.class.getName());
@@ -125,7 +125,7 @@ public class HistoryNewsController {
         JSONObject jsonObject = null;
         String getDate = JsonUtil.getDate(date);
         if (date != null&&getDate!=null&&(!getDate.equals(""))){
-            jsonObject = service.getAllHisNewsList(RankQdaily.class.getName(),date);
+            jsonObject = service.getAllHisNewsList(RankQdaily.class.getName(),getDate);
         }
         else {
             jsonObject = service.getAllNewsList(RankQdaily.class.getName());
@@ -138,7 +138,7 @@ public class HistoryNewsController {
         JSONObject jsonObject = null;
         String getDate = JsonUtil.getDate(date);
         if (date != null&&getDate!=null&&(!getDate.equals(""))){
-            jsonObject = service.getAllHisNewsList(RankToutiao.class.getName(),date);
+            jsonObject = service.getAllHisNewsList(RankToutiao.class.getName(),getDate);
         }
         else {
             jsonObject = service.getAllNewsList(RankToutiao.class.getName());
@@ -151,7 +151,7 @@ public class HistoryNewsController {
         JSONObject jsonObject = null;
         String getDate = JsonUtil.getDate(date);
         if (date != null&&getDate!=null&&(!getDate.equals(""))){
-            jsonObject = service.getAllHisNewsList(RankWeibo.class.getName(),date);
+            jsonObject = service.getAllHisNewsList(RankWeibo.class.getName(),getDate);
         }
         else {
             jsonObject = service.getAllNewsList(RankWeibo.class.getName());
@@ -164,7 +164,7 @@ public class HistoryNewsController {
         JSONObject jsonObject = null;
         String getDate = JsonUtil.getDate(date);
         if (date != null&&getDate!=null&&(!getDate.equals(""))){
-            jsonObject = service.getAllHisNewsList(RankYc.class.getName(),date);
+            jsonObject = service.getAllHisNewsList(RankYc.class.getName(),getDate);
         }
         else {
             jsonObject = service.getAllNewsList(RankYc.class.getName());
@@ -179,8 +179,8 @@ public class HistoryNewsController {
         JSONObject zhihu = null;
         JSONObject word = null;
         if (date != null&&getDate!=null&&(!getDate.equals(""))){
-            zhihu = service.getAllHisNewsList(RankZhihu.class.getName(),date);
-            word = service.getAllHisNewsList(RankZhihuword.class.getName(),date);
+            zhihu = service.getAllHisNewsList(RankZhihu.class.getName(),getDate);
+            word = service.getAllHisNewsList(RankZhihuword.class.getName(),getDate);
         }
         else{
             zhihu = service.getAllNewsList(RankZhihu.class.getName());

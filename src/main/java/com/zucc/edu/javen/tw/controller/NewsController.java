@@ -21,12 +21,12 @@ public class NewsController {
     JSONObject getWangyixinwenNews(@RequestBody String date){
 
         JSONObject jsonObject = null;
-        date = JsonUtil.getDate(date);
-        if (date == null||date.equals("")){
-            jsonObject = service.getAllNewsList(Rank163.class.getName());
+        String getDate = JsonUtil.getDate(date);
+        if (date != null&&getDate!=null&&(!getDate.equals(""))){
+            jsonObject = service.getAllHisNewsList(Rank163.class.getName(),getDate);
         }
         else {
-            jsonObject = service.getAllHisNewsList(Rank163.class.getName(),date);
+            jsonObject = service.getAllNewsList(Rank163.class.getName());
         }
         return jsonObject;
     }
@@ -34,12 +34,12 @@ public class NewsController {
     @PostMapping("/keji/kr36")
     JSONObject get36keNews(@RequestBody String date){
         JSONObject jsonObject = null;
-        date = JsonUtil.getDate(date);
-        if (date == null||date.equals("")){
-            jsonObject = service.getAllNewsList(Rank36kr.class.getName());
+        String getDate = JsonUtil.getDate(date);
+        if (date != null&&getDate!=null&&(!getDate.equals(""))){
+            jsonObject = service.getAllHisNewsList(Rank36kr.class.getName(),getDate);
         }
         else {
-            jsonObject = service.getAllHisNewsList(Rank36kr.class.getName(),date);
+            jsonObject = service.getAllNewsList(Rank36kr.class.getName());
         }
         return jsonObject;
     }
@@ -47,16 +47,16 @@ public class NewsController {
     @PostMapping("/zonghe/baidu")
     JSONObject getBaiduNews(@RequestBody String date){
         JSONObject jsonObject = new JSONObject();
-        date = JsonUtil.getDate(date);
+        String getDate = JsonUtil.getDate(date);
         JSONObject hotnews = null;
         JSONObject tiebanews = null;
-        if(date == null||date.equals("")){
-            hotnews = service.getAllNewsList(RankBaidu.class.getName());
-            tiebanews = service.getAllNewsList(RankTieba.class.getName());
+        if(date != null&&getDate!=null&&(!getDate.equals(""))){
+            hotnews = service.getAllHisNewsList(RankBaidu.class.getName(),getDate);
+            tiebanews = service.getAllHisNewsList(RankTieba.class.getName(),getDate);
         }
         else{
-            hotnews = service.getAllHisNewsList(RankBaidu.class.getName(),date);
-            tiebanews = service.getAllHisNewsList(RankTieba.class.getName(),date);
+            hotnews = service.getAllNewsList(RankBaidu.class.getName());
+            tiebanews = service.getAllNewsList(RankTieba.class.getName());
         }
         hotnews.put("name","热点");
         tiebanews.put("name","贴吧");
@@ -65,28 +65,28 @@ public class NewsController {
         return jsonObject;
     }
 
-//    @PostMapping("/shipin/bilibili")
-//    JSONObject getBilibiliNews(@RequestBody String date){
-//        JSONObject jsonObject = null;
-//        date = JsonUtil.getDate(date);
-//        if (date == null||date.equals("")){
-//            jsonObject = service.getAllNewsList(RankBilibili.class.getName());
-//        }
-//        else {
-//            jsonObject = service.getAllHisNewsList(RankBilibili.class.getName(),date);
-//        }
-//        return jsonObject;
-//    }
+    @PostMapping("/shipin/bilibili")
+    JSONObject getBilibiliNews(@RequestBody String date){
+        JSONObject jsonObject = null;
+        String getDate = JsonUtil.getDate(date);
+        if (date != null&&getDate!=null&&(!getDate.equals(""))){
+            jsonObject = service.getAllHisNewsList(RankBilibili.class.getName(),getDate);
+        }
+        else {
+            jsonObject = service.getAllNewsList(RankBilibili.class.getName());
+        }
+        return jsonObject;
+    }
 
     @PostMapping("/keji/guokr")
     JSONObject getGuokeNews(@RequestBody String date){
         JSONObject jsonObject = null;
-        date = JsonUtil.getDate(date);
-        if (date == null||date.equals("")){
-            jsonObject = service.getAllNewsList(RankGuoke.class.getName());
+        String getDate = JsonUtil.getDate(date);
+        if (date != null&&getDate!=null&&(!getDate.equals(""))){
+            jsonObject = service.getAllHisNewsList(RankGuoke.class.getName(),getDate);
         }
         else {
-            jsonObject = service.getAllHisNewsList(RankGuoke.class.getName(),date);
+            jsonObject = service.getAllNewsList(RankGuoke.class.getName());
         }
         return jsonObject;
     }
@@ -94,12 +94,12 @@ public class NewsController {
     @PostMapping("/shipin/pearvideo")
     JSONObject getPearvedioNews(@RequestBody String date){
         JSONObject jsonObject = null;
-        date = JsonUtil.getDate(date);
-        if (date == null||date.equals("")){
-            jsonObject = service.getAllNewsList(RankPearvedio.class.getName());
+        String getDate = JsonUtil.getDate(date);
+        if (date != null&&getDate!=null&&(!getDate.equals(""))){
+            jsonObject = service.getAllHisNewsList(RankPearvedio.class.getName(),getDate);
         }
         else {
-            jsonObject = service.getAllHisNewsList(RankPearvedio.class.getName(),date);
+            jsonObject = service.getAllNewsList(RankPearvedio.class.getName());
         }
         return jsonObject;
     }
@@ -107,12 +107,12 @@ public class NewsController {
     @PostMapping("/shipin/pengpai")
     JSONObject getPengpaiNews(@RequestBody String date){
         JSONObject jsonObject = null;
-        date = JsonUtil.getDate(date);
-        if (date == null||date.equals("")){
-            jsonObject = service.getAllNewsList(RankPengpai.class.getName());
+        String getDate = JsonUtil.getDate(date);
+        if (date != null&&getDate!=null&&(!getDate.equals(""))){
+            jsonObject = service.getAllHisNewsList(RankPengpai.class.getName(),getDate);
         }
         else {
-            jsonObject = service.getAllHisNewsList(RankPengpai.class.getName(),date);
+            jsonObject = service.getAllNewsList(RankPengpai.class.getName());
         }
         return jsonObject;
     }
@@ -120,12 +120,12 @@ public class NewsController {
     @PostMapping("/zonghe/qdaily")
     JSONObject getQdailyNews(@RequestBody String date){
         JSONObject jsonObject = null;
-        date = JsonUtil.getDate(date);
-        if (date == null||date.equals("")){
-            jsonObject = service.getAllNewsList(RankQdaily.class.getName());
+        String getDate = JsonUtil.getDate(date);
+        if (date != null&&getDate!=null&&(!getDate.equals(""))){
+            jsonObject = service.getAllHisNewsList(RankQdaily.class.getName(),getDate);
         }
         else {
-            jsonObject = service.getAllHisNewsList(RankQdaily.class.getName(),date);
+            jsonObject = service.getAllNewsList(RankQdaily.class.getName());
         }
         return jsonObject;
     }
@@ -133,12 +133,12 @@ public class NewsController {
     @PostMapping("/zonghe/toutiao")
     JSONObject getToutiaoNews(@RequestBody String date){
         JSONObject jsonObject = null;
-        date = JsonUtil.getDate(date);
-        if (date == null||date.equals("")){
-            jsonObject = service.getAllNewsList(RankToutiao.class.getName());
+        String getDate = JsonUtil.getDate(date);
+        if (date != null&&getDate!=null&&(!getDate.equals(""))){
+            jsonObject = service.getAllHisNewsList(RankToutiao.class.getName(),getDate);
         }
         else {
-            jsonObject = service.getAllHisNewsList(RankToutiao.class.getName(),date);
+            jsonObject = service.getAllNewsList(RankToutiao.class.getName());
         }
         return jsonObject;
     }
@@ -146,12 +146,12 @@ public class NewsController {
     @PostMapping("/zonghe/weibo")
     JSONObject getWeiboNews(@RequestBody String date){
         JSONObject jsonObject = null;
-        date = JsonUtil.getDate(date);
-        if (date == null||date.equals("")){
-            jsonObject = service.getAllNewsList(RankWeibo.class.getName());
+        String getDate = JsonUtil.getDate(date);
+        if (date != null&&getDate!=null&&(!getDate.equals(""))){
+            jsonObject = service.getAllHisNewsList(RankWeibo.class.getName(),getDate);
         }
         else {
-            jsonObject = service.getAllHisNewsList(RankWeibo.class.getName(),date);
+            jsonObject = service.getAllNewsList(RankWeibo.class.getName());
         }
         return jsonObject;
     }
@@ -159,12 +159,12 @@ public class NewsController {
     @PostMapping("/keji/yc")
     JSONObject getYcNews(@RequestBody String date){
         JSONObject jsonObject = null;
-        date = JsonUtil.getDate(date);
-        if (date == null||date.equals("")){
-            jsonObject = service.getAllNewsList(RankYc.class.getName());
+        String getDate = JsonUtil.getDate(date);
+        if (date != null&&getDate!=null&&(!getDate.equals(""))){
+            jsonObject = service.getAllHisNewsList(RankYc.class.getName(),getDate);
         }
         else {
-            jsonObject = service.getAllHisNewsList(RankYc.class.getName(),date);
+            jsonObject = service.getAllNewsList(RankYc.class.getName());
         }
         return jsonObject;
     }
@@ -172,16 +172,16 @@ public class NewsController {
     @PostMapping("/zonghe/zhihu")
     JSONObject getZhihuNews(@RequestBody String date){
         JSONObject jsonObject = new JSONObject();
-        date = JsonUtil.getDate(date);
+        String getDate = JsonUtil.getDate(date);
         JSONObject zhihu = null;
         JSONObject word = null;
-        if(date == null||date.equals("")){
-            zhihu = service.getAllNewsList(RankZhihu.class.getName());
-            word = service.getAllNewsList(RankZhihuword.class.getName());
+        if (date != null&&getDate!=null&&(!getDate.equals(""))){
+            zhihu = service.getAllHisNewsList(RankZhihu.class.getName(),getDate);
+            word = service.getAllHisNewsList(RankZhihuword.class.getName(),getDate);
         }
         else{
-            zhihu = service.getAllHisNewsList(RankZhihu.class.getName(),date);
-            word = service.getAllHisNewsList(RankZhihuword.class.getName(),date);
+            zhihu = service.getAllNewsList(RankZhihu.class.getName());
+            word = service.getAllNewsList(RankZhihuword.class.getName());
         }
         zhihu.put("name","热榜");
         word.put("name","热词");

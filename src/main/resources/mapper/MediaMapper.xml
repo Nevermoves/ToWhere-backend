@@ -9,6 +9,10 @@
         <result property="medianame" column="medianame" javaType="java.lang.String"/>
         <result property="tablename" column="tablename" javaType="java.lang.String"/>
         <result property="mediaurl" column="mediaurl" javaType="java.lang.String"/>
+        <result property="ranknum" column="ranknum" javaType="java.lang.Integer"/>
     </resultMap>
 
+    <select id="getMedia" resultMap="mediamap" parameterType="string">
+        select * from media_media where medianame = #{medianame}
+    </select>
 </mapper>

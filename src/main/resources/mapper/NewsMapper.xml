@@ -15,11 +15,11 @@
         <result property="more" column="more" javaType="java.lang.String"/>
     </resultMap>
 
-    <select id="getNews" resultMap="newsmap" parameterType="com.zucc.edu.javen.tw.frame.NewsForm">
+    <select id="getNews" resultType="java.util.Map" parameterType="com.zucc.edu.javen.tw.frame.NewsForm">
         select * from ${table} ${column} limit ${limit}
     </select>
 
-    <select id="getMoreNews" resultMap="newsmoremap" parameterType="com.zucc.edu.javen.tw.frame.NewsForm">
+    <select id="getNewsMap" resultType="java.util.Map" parameterType="com.zucc.edu.javen.tw.frame.NewsForm">
         select * from ${table} ${column} limit ${limit}
     </select>
 

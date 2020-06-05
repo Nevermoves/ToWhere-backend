@@ -22,14 +22,18 @@ public class NewsController {
 
         JSONObject jsonObject = null;
         String getDate = JsonUtil.getDate(date);
-        if (date != null&&getDate!=null&&(!getDate.equals(""))){
-            jsonObject = service.getAllHisNewsList(Rank163.class.getName(),getDate);
-        }
-        else {
-            jsonObject = service.getAllNewsList(Rank163.class.getName());
-        }
+        if(getDate!=null)jsonObject = service.getAllHisNewsList("wangyi",getDate);
+        else jsonObject = service.getAllNewsList("wangyi");
         return jsonObject;
     }
+
+//    @PostMapping("/zonghe/wangyi")
+//    JSONObject getWangyixinwenNews(){
+//
+//        JSONObject jsonObject = null;
+//        jsonObject = service.getAllNewsList("wangyi");
+//        return jsonObject;
+//    }
 
     @PostMapping("/keji/kr36")
     JSONObject get36keNews(@RequestBody String date){

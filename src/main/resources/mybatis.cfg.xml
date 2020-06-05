@@ -10,6 +10,7 @@
     <typeAliases>
         <typeAlias type="com.zucc.edu.javen.tw.entity.UserEntity" alias="UserEntity"/>
         <typeAlias type="com.zucc.edu.javen.tw.entity.PickEntity" alias="PickEntity"/>
+        <typeAlias type="com.zucc.edu.javen.tw.entity.MediaEntity" alias="media"/>
         <typeAlias type="com.zucc.edu.javen.tw.entity.Rank163" alias="Rank163"/>
         <typeAlias type="com.zucc.edu.javen.tw.entity.Rank36kr" alias="Rank36kr"/>
         <typeAlias type="com.zucc.edu.javen.tw.entity.RankBaidu" alias="RankBaidu"/>
@@ -64,6 +65,7 @@
         <mapper resource="mapper/RankycMapper.xml"/>
         <mapper resource="mapper/RankzhihuMapper.xml"/>
         <mapper resource="mapper/PickMapper.xml"/>
+        <mapper resource="mapper/MediaMapper.xml"/>
         <mapper resource="mapper/NewsMapper.xml"/>
     </mappers>
 </configuration>

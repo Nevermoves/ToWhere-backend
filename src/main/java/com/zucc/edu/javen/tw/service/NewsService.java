@@ -59,10 +59,16 @@ public class NewsService implements NewsServiceImpl {
         List<MediaEntity> mediaEntities = BuildSession.getMedias(name);
         for(MediaEntity media:mediaEntities){
             List<JSONObject> jsonObjects = BuildSession.getList(media);
-            for(int i=0;i<jsonObjects.size();i++){
+            int i;
+            for(i=0;i<jsonObjects.size();i++){
                 if(jsonObjects.get(i).getInteger("rank")==1){
                     list = jsonObjects.subList(0,i+1);
-                    last = jsonObjects.subList(i+1,i*2+1);
+                    break;
+                }
+            }
+            for(int j=i+1;j<jsonObjects.size();j++){
+                if(jsonObjects.get(j).getInteger("rank")==1){
+                    last = jsonObjects.subList(i+1,j+1);
                     break;
                 }
             }

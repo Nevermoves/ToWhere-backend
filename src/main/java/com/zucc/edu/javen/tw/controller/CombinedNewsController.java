@@ -215,9 +215,12 @@ public class CombinedNewsController {
         json.put("mostHot", MaxKey);
         json.put("mentioned", MaxValue);
         List<JSONObject> itemJson = new ArrayList<JSONObject>();
+        int id = 0;
         for (ItemEntity itemEntity : itemList) {
             if (itemEntity.getParticiple().get(MaxKey) != null) {
+                id++;
                 JSONObject item = new JSONObject(true);
+                item.put("id", id);
                 item.put("title", itemEntity.getTitle());
                 item.put("url", itemEntity.getUrl());
                 item.put("from", itemEntity.getFrom());

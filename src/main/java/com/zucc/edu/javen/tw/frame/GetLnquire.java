@@ -28,7 +28,7 @@ public class GetLnquire {
         NewsForm form = new NewsForm();
         form.setColumn("order by id desc");
         form.setDao("getNews");
-        form.setLimit(media.getRanknum()*2);
+        form.setLimit(media.getRanknum()*4);
         form.setTable(media.getTablename());
         return form;
     }
@@ -37,7 +37,7 @@ public class GetLnquire {
         NewsForm form = new NewsForm();
         form.setColumn("where get_date < '"+getdate+"' order by id desc");
         form.setDao("getNews");
-        form.setLimit(media.getRanknum()*2);
+        form.setLimit(media.getRanknum());
         form.setTable(media.getTablename());
         return form;
     }

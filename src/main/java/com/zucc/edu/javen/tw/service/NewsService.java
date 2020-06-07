@@ -55,26 +55,31 @@ public class NewsService implements NewsServiceImpl {
     public JSONObject getAllNewsList(String name) {
         JSONObject jsonObject = new JSONObject();
         List<JSONObject> list = null;
-        List<JSONObject> last = null;
         List<MediaEntity> mediaEntities = BuildSession.getMedias(name);
         for(MediaEntity media:mediaEntities){
             List<JSONObject> jsonObjects = BuildSession.getList(media);
-            for(int i=0;i<jsonObjects.size();i++){
+            Set<String> titleSet = new HashSet<String>();
+            int i;
+            for(i=0;i<jsonObjects.size();i++){
                 if(jsonObjects.get(i).getInteger("rank")==1){
                     list = jsonObjects.subList(0,i+1);
-                    last = jsonObjects.subList(i+1,i*2+1);
                     break;
                 }
             }
-            for(JSONObject listjs:list){
-                boolean flag = true;
-                for(JSONObject lastjs:last){
-                    if(listjs.get("title").equals(lastjs.get("title"))){
-                        flag = false;
-                        break;
-                    }
+            for(int j=i+1;j<jsonObjects.size();j++){
+                if(j!=i+1&&jsonObjects.get(j-1).getInteger("rank")==1){
+                    break;
                 }
-                listjs.put("new_tag",flag);
+                titleSet.add(jsonObjects.get(j).getString("title"));
+            }
+            for(JSONObject listjs:list){
+                if(titleSet.contains(listjs.getString("title"))){
+                    listjs.put("new_tag",false);
+                }
+                else{
+                    listjs.put("new_tag",true);
+                }
+
             }
             Collections.sort(list,(a, b) -> Integer.compare(a.getInteger("rank"),b.getInteger("rank")));
             if(mediaEntities.size()==1){

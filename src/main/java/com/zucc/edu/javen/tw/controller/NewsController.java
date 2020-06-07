@@ -29,6 +29,7 @@ public class NewsController {
     }
 
     JSONObject getNewstext(String url, Date date){
+        NewsService service = new NewsService();
         JSONObject jsonObject = null;
         String getDate = JsonUtil.getDate(date);
         if(getDate!=null)jsonObject = service.getAllHisNewsList(url,getDate);

@@ -14,6 +14,13 @@ public class NgramsTokenizer implements Tokenizer {
             }
 
         }
+        for (int i = 0; i < str.length(); i++) {
+            if (i + 2 < str.length()) {
+                String token = str.substring(i, i + 3);
+                ls.add(token);
+            }
+
+        }
 
         return ls;
     }

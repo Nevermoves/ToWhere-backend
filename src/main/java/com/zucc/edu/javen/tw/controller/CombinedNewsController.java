@@ -22,8 +22,9 @@ public class CombinedNewsController {
     private NewsService service;
 
     @PostMapping("/combine/now")
+    @SuppressWarnings("unchecked")
     public JSONObject getAllNewsList() {
-        //todo: baidu zhihu
+        //done: baidu zhihu
 
         Map<String, Integer> Participle = new HashMap<String, Integer>();
         Set<String> tokens = new HashSet<String>();
@@ -83,6 +84,7 @@ public class CombinedNewsController {
     }
 
     @PostMapping("/combine/all")
+    @SuppressWarnings("unchecked")
     public JSONObject getAllNewsList(HttpServletRequest request) {
         String date = JsonUtil.getBody(request);
         JSONObject jsonObject = null;

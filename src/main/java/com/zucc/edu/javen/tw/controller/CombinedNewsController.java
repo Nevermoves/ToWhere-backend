@@ -207,8 +207,15 @@ public class CombinedNewsController {
     }
 
     private JSONObject createJsonResponse(List<ItemEntity> itemList, List<Map.Entry<String, Integer>> tokenValue) {
-        String MaxKey = tokenValue.get(0).getKey();
-        int MaxValue = tokenValue.get(0).getValue();
+        String MaxKey = null;
+        int MaxValue = 0;
+        try {
+            MaxKey = tokenValue.get(0).getKey();
+            MaxValue = tokenValue.get(0).getValue();
+        } catch (Exception e) {
+            MaxKey = null;
+        }
+
 
         JSONObject json = new JSONObject(true);
 

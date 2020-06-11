@@ -11,7 +11,13 @@ public class AsnjTokenizer implements Tokenizer {
         List<String> ls = new ArrayList<String>();
         for (Term term : ToAnalysis.parse(str).getTerms()) {
 //            System.out.println(term.getRealName());
-            ls.add(term.getRealName());
+            if (term.getRealName().equals(" ") || term.getRealName() == null
+                    || term.getRealName().equals("，") || term.getRealName().equals("“")
+                    || term.getRealName().equals("?") || term.getRealName().equals("？")
+                    || term.getRealName().equals("：") || term.getRealName().equals("。"))
+                continue;
+            if (term.getRealName().length() >= 2) ls.add(term.getRealName());
+
         }
 
 

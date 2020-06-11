@@ -16,7 +16,7 @@ public class NewsController {
     @Autowired
     private NewsService service;
 
-    @PostMapping("/*/*")
+    @PostMapping(value = {"/shipin/{[a-z]+}","zonghe/{[a-z]+}","keji/{[a-z]+}"})
     JSONObject getNews(HttpServletRequest request){
         String[] urls = request.getRequestURL().toString().split("/");
         String url = urls[urls.length-1];
